@@ -1,0 +1,69 @@
+{
+  "title": "Student Details Detail",
+  "description": "Displays StudentDetails record",
+  "variables": {
+    "studentDetails": {
+      "type": "page:getStudentDetailsResponse"
+    },
+    "studentDetailsId": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getStudentDetailsResponse": {
+      "endpoint": "get_StudentDetails",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "getStudentDetailsResponse": {
+      "class": "string",
+      "percentage": "number",
+      "studentName": "string"
+    }
+  },
+  "eventListeners": {
+    "backButtonClicked": {
+      "chains": [
+        {
+          "chainId": "goBackChain"
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "chainId": "loadStudentDetailsChain"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+    }
+  }
+}

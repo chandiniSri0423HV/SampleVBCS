@@ -1,0 +1,75 @@
+{
+    "fields": [
+        {
+            "type": "number",
+            "name": "id",
+            "internal": false,
+            "key": true,
+            "oid": "0cceb48e-34b9-4167-806f-d9299266c507",
+            "required": true,
+            "unique": true,
+            "displayLabel": "Id"
+        },
+        {
+            "type": "datetime",
+            "name": "creationDate",
+            "internal": false,
+            "oid": "b30ea377-d5f5-4e9b-b729-47370176e6ac",
+            "displayLabel": "Created",
+            "historyType": "timeCreated"
+        },
+        {
+            "type": "datetime",
+            "name": "lastUpdateDate",
+            "internal": false,
+            "oid": "2797a00f-3bb9-493e-8fed-2199274cfab3",
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated"
+        },
+        {
+            "type": "string",
+            "name": "createdBy",
+            "internal": false,
+            "oid": "b06356f2-f643-4dba-a5e8-1a7b9779880a",
+            "displayLabel": "Created By",
+            "historyType": "createdBy"
+        },
+        {
+            "type": "string",
+            "name": "lastUpdatedBy",
+            "internal": false,
+            "oid": "2af6f064-f7ad-4592-8cf4-dfd0adf43314",
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy"
+        },
+{
+            "type": "number",
+            "name": "versionNumber",
+            "internal": false,
+            "oid": "6ab0cd0f-5917-4418-bd25-21c8d34f4339",
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber"
+        },
+        {
+            "type": "string",
+            "name": "studentName",
+            "oid": "f5cfa1e7-7f0d-4d0f-81a4-e788c9bea8e3",
+            "displayLabel": "Student Name"
+        }        ,
+        {
+            "type": "string",
+            "name": "class",
+            "oid": "58788039-9a45-496b-b668-4c498d1a3f64",
+            "displayLabel": "Class"
+        }        ,
+        {
+            "type": "number",
+            "name": "percentage",
+            "oid": "aef969c0-3945-414d-a794-63f36f21d029",
+            "displayLabel": "Percentage"
+        }
+    ],
+    "name": "StudentDetails",
+    "oid": "17ae1eff-aac5-497e-9a54-28ec5b74a9bc",
+    "displayLabel": "Student Details"
+}

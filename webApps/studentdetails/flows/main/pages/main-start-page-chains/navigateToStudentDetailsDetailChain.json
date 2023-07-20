@@ -1,0 +1,21 @@
+{
+  "root": "navigateToDetail",
+  "variables": {
+    "studentDetailsId": {
+      "type": "string",
+      "input": "fromCaller",
+      "required": true
+    }
+  },
+  "actions": {
+    "navigateToDetail": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "main-student-details-detail",
+        "params": {
+          "studentDetailsId": "[[ $variables.studentDetailsId ]]"
+        }
+      }
+    }
+  }
+}

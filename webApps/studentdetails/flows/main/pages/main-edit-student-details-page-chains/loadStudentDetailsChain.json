@@ -1,0 +1,39 @@
+{
+  "root": "loadStudentDetails",
+  "actions": {
+    "loadStudentDetails": {
+      "module": "vb/action/builtin/restAction",
+      "parameters": {
+        "endpoint": "businessObjects/get_StudentDetails",
+        "uriParams": {
+          "StudentDetails_Id": "[[ $page.variables.studentDetailsId ]]"
+        },
+        "responseType": "page:getStudentDetailsResponse"
+      },
+      "outcomes": {
+        "success": "assignPayload",
+        "failure": "fireErrorNotification"
+      }
+    },
+    "assignPayload": {
+      "module": "vb/action/builtin/assignVariablesAction",
+      "parameters": {
+        "$page.variables.studentDetails": {
+          "source": "{{ $chain.results.loadStudentDetails.body }}"
+        },
+        "$page.variables.studentDetailsETag": {
+          "source": "[[ $chain.results.loadStudentDetails.headers.get('ETag') ]]"
+        }
+      }
+    },
+    "fireErrorNotification": {
+      "module": "vb/action/builtin/fireNotificationEventAction",
+      "parameters": {
+        "summary": "Could not load data",
+        "message": "{{ 'Could not load data: status ' + $chain.results.loadStudentDetails.status }}",
+        "type": "error",
+        "displayMode": "persist"
+      }
+    }
+  }
+}

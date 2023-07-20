@@ -1,0 +1,106 @@
+{
+  "title": "main",
+  "description": "",
+  "variables": {
+    "oj_table_270161789_1SelectedId": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "studentDetailsListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_StudentDetails",
+        "keyAttributes": "id",
+        "itemsPath": "items",
+        "responseType": "getallStudentDetailsResponse"
+      }
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getallStudentDetailsResponse": {
+      "endpoint": "getall_StudentDetails",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "getallStudentDetailsResponse": {
+      "items": [
+        {
+          "class": "string",
+          "id": "number",
+          "studentName": "string"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "createStudentDetailsButtonClicked": {
+      "chains": [
+        {
+          "chainId": "navigateToCreateStudentDetailsChain"
+        }
+      ]
+    },
+    "deleteStudentDetailsButtonClicked": {
+      "chains": [
+        {
+          "chainId": "deleteStudentDetailsChain",
+          "parameters": {
+            "studentDetailsId": "[[ $variables.oj_table_270161789_1SelectedId ]]"
+          }
+        }
+      ]
+    },
+    "editStudentDetailsButtonClicked": {
+      "chains": [
+        {
+          "chainId": "navigateToEditStudentDetailsChain",
+          "parameters": {
+            "studentDetailsId": "[[ $variables.oj_table_270161789_1SelectedId ]]"
+          }
+        }
+      ]
+    },
+    "oj_table_270161789_1SelectionChanged": {
+      "chains": [
+        {
+          "chainId": "oj_table_270161789_1ChangeSelectionChain",
+          "parameters": {
+            "studentDetailsId": "[[ $event.detail.value.key || '' ]]"
+          }
+        }
+      ]
+    },
+    "studentDetailsDetailButtonClicked": {
+      "chains": [
+        {
+          "chainId": "navigateToStudentDetailsDetailChain",
+          "parameters": {
+            "studentDetailsId": "[[ $variables.oj_table_270161789_1SelectedId ]]"
+          }
+        }
+      ]
+    },
+    "toggleDrawer": {
+      "chains": [
+        {
+          "chainId": "application:toggleDrawerHandler"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+    }
+  }
+}
